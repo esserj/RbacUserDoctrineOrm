@@ -1,0 +1,34 @@
+{
+    "name": "esserj/rbac-user-doctrine-orm",
+    "description": "A module that joins Zfc rbac, user in a pre-configured doctrine ORM based module",
+    "type": "library",
+    "keywords": [
+        "rbac",
+        "user",
+        "doctrine",
+        "orm",
+        "module",
+        "zf2"
+    ],
+    "homepage": "http://www.github.com/esserj/RbacUserDoctrineOrm/",
+    "authors": [
+        {
+            "name": "Jan Esser",
+            "email": "esserj@gmail.com",
+            "homepage": ""
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": ">2.2.0rc1",
+        "zf-commons/zfc-user": "dev-master",
+        "zf-commons/zfc-rbac": "dev-master",
+        "zf-commons/zfc-user-doctrine-orm": "dev-master"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "RbacUserDoctrineOrm": "src/"
+        }
+    }
+}
