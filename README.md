@@ -11,7 +11,8 @@ RbacUserDoctrineOrm offers a module that combines ZfcRbac & ZfcUser together wit
    - [ZfcUser](https://github.com/ZF-Commons/ZfcUser)
      - [ZfcBase](https://github.com/ZF-Commons/ZfcBase)
    - [DoctrineORMModule](https://github.com/doctrine/DoctrineORMModule)
-     -[DoctrineModule](https://github.com/doctrine/DoctrineModule) 
+     - [DoctrineModule](https://github.com/doctrine/DoctrineModule)
+
 ## Installation
 
 Installation of ZfcRbac uses composer. For composer documentation, please refer to
