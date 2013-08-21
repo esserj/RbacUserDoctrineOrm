@@ -1,6 +1,6 @@
 {
     "name": "esserj/rbac-user-doctrine-orm",
-    "description": "A module that joins Zfc rbac, user in a pre-configured doctrine ORM based module",
+    "description": "A module that joins zfc-rbac & zfc-user in a pre-configured doctrine ORM based module",
     "type": "library",
     "keywords": [
         "rbac",
