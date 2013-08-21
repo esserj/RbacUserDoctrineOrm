@@ -44,6 +44,8 @@ Installation of RbacUserDoctrineOrm uses composer. For composer documentation, p
         'ZfcUserDoctrineORM',
         'RbacUserDoctrineOrm',
      ```
+  6. run the schema-full.sql file found in `my/project/directory/vendor/esserj/rbac-user-doctrine-orm/data` or alternatively run the schema.sql if you already installed ZfcUser or ZfcRbac schemas
+  7. see the ZfcUser & ZfcRbac pages for controller/view plugins to get started
      
 ## Providers
 
@@ -51,6 +53,6 @@ Providers are listeners that hook into various events to provide roles and permi
 several providers that you can use out of the box, but none support ORM, this is where we come in:
 
   - Generic Providers:
-    - Permissions & Roles (RbacUserDoctrineOrm\Provider\AdjacencyList\Role): uses Doctrine ORM to inject a Role entities that have permission entities compatible with the ZfcRbac RoleInterface
+    - Permissions & Roles (RbacUserDoctrineOrm\Provider\AdjacencyList\Role): uses Doctrine ORM to inject Role entities that have permission entities compatible with the ZfcRbac RoleInterface
 
 
