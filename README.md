@@ -2,11 +2,16 @@
 
 RbacUserDoctrineOrm offers a module that combines ZfcRbac & ZfcUser together with the Doctrine Orm module from ZF2 so that you can focus on getting started.
 
-## Requirements
+## Requirements & their dependencies
 
  - PHP 5.3 or higher
  - [Zend Framework 2](http://www.github.com/zendframework/zf2)
-
+ - [ZfcRbac](https://github.com/ZF-Commons/ZfcRbac)
+ - [ZfcUserDoctrineOrm](https://github.com/ZF-Commons/ZfcUserDoctrineORM)
+   - [ZfcUser](https://github.com/ZF-Commons/ZfcUser)
+     - [ZfcBase](https://github.com/ZF-Commons/ZfcBase)
+   - [DoctrineORMModule](https://github.com/doctrine/DoctrineORMModule)
+     -[DoctrineModule](https://github.com/doctrine/DoctrineModule) 
 ## Installation
 
 Installation of ZfcRbac uses composer. For composer documentation, please refer to
