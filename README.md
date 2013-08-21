@@ -51,6 +51,6 @@ Providers are listeners that hook into various events to provide roles and permi
 several providers that you can use out of the box, but none support ORM, this is where we come in:
 
   - Generic Providers:
-    - Permissions & Roles (RbacUserDoctrineOrm\Provider\AdjacencyList\Role): uses Doctrine ORM to return a role that has permissions
+    - Permissions & Roles (RbacUserDoctrineOrm\Provider\AdjacencyList\Role): uses Doctrine ORM to inject a Role entities that have permission entities compatible with the ZfcRbac RoleInterface
 
 
