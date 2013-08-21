@@ -1,4 +1,4 @@
-# ORM based RbacUser module for Zend Framewark 2
+# ORM based RbacUser module for ZF 2
 
 RbacUserDoctrineOrm offers a module that combines ZfcRbac & ZfcUser together with the Doctrine Orm module from ZF2 so that you can focus on getting started.
 
