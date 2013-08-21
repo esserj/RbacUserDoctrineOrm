@@ -15,7 +15,7 @@ RbacUserDoctrineOrm offers a module that combines ZfcRbac & ZfcUser together wit
 
 ## Installation
 
-Installation of ZfcRbac uses composer. For composer documentation, please refer to
+Installation of RbacUserDoctrineOrm uses composer. For composer documentation, please refer to
 [getcomposer.org](http://getcomposer.org/).
 
 #### Installation steps
