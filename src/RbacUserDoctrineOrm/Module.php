@@ -5,13 +5,16 @@ namespace RbacUserDoctrineOrm;
 use Zend\EventManager\EventInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\DependencyIndicatorInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\Mvc\MvcEvent;
 
-class Module implements BootstrapListenerInterface, ConfigProviderInterface, ServiceProviderInterface
+class Module
+    implements BootstrapListenerInterface,
+               ConfigProviderInterface,
+               ServiceProviderInterface,
+               DependencyIndicatorInterface
 {
-
-
 
     /**
      * Listen to the bootstrap event
@@ -62,6 +65,19 @@ class Module implements BootstrapListenerInterface, ConfigProviderInterface, Ser
                     );
                 },
             ),
+        );
+    }
+
+    /**
+     * Expected to return an array of modules on which the current one depends on
+     *
+     * @return array
+     */
+    public function getModuleDependencies()
+    {
+        return array(
+            'DoctrineModule', 'DoctrineORMModule', 'ZfcBase',
+            'ZfcUser', 'ZfcUserDoctrineORM', 'ZfcRbac'
         );
     }
 }
