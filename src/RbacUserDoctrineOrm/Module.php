@@ -39,7 +39,24 @@ class Module
     {
         return include __DIR__ . '/../../config/module.config.php';
     }
-
+    
+    /**
+     * 
+     * Set autoloader config for RbacUserDoctrineOrm module
+     * 
+     * @return array\Traversable
+     */
+    public function getAutoloaderConfig()
+    {
+        return array(
+            'Zend\Loader\StandardAutoloader' => array(
+                'namespaces' => array(
+                    __NAMESPACE__ => __DIR__,
+                ),
+            ),
+        );
+    }
+    
     /**
      * Expected to return \Zend\ServiceManager\Config object or array to
      * seed such an object.
