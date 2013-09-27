@@ -232,8 +232,19 @@ class Role implements RoleInterface{
                 return true;
             }
         }
+
+        $it = new RecursiveIteratorIterator($this, RecursiveIteratorIterator::CHILD_FIRST);
+        foreach ($it as $leaf) {
+            foreach ($leaf->getPermissions() as $permission) {
+                if ($permission->getName() == $name) {
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
+
 
     /**
      * Add a child.
