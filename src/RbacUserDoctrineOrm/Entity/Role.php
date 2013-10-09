@@ -268,4 +268,9 @@ class Role implements RoleInterface{
     {
         return ($this->children->count() > 0);
     }
+    
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
