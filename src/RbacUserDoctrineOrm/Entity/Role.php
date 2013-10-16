@@ -53,7 +53,7 @@ class Role implements RoleInterface{
      * current position in the children array
      * @var int
      */
-    private $childrenPosition=0;
+    protected $childrenPosition=0;
 
     /**
      * @param int $id
