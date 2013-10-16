@@ -29,7 +29,7 @@ class User extends ZfcUserEntity implements IdentityInterface
     protected $roles;
 
     /**
-     * @return PersistentCollection
+     * @return PersistentCollection|Role[]
      */
     public function getRoles()
     {

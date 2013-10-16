@@ -39,11 +39,11 @@ class Module
     {
         return include __DIR__ . '/../../config/module.config.php';
     }
-    
+
     /**
-     * 
+     *
      * Set autoloader config for RbacUserDoctrineOrm module
-     * 
+     *
      * @return array\Traversable
      */
     public function getAutoloaderConfig()

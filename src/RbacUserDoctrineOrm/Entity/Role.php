@@ -18,8 +18,7 @@ namespace RbacUserDoctrineOrm\Entity;
 
 use Doctrine\ORM\PersistentCollection;
 use RecursiveIterator;
-use RecursiveIteratorIterator;
-use Zend\Permissions\Rbac\Role as Role0;
+use IteratorIterator;
 use Zend\Permissions\Rbac\RoleInterface;
 
 
@@ -140,11 +139,20 @@ class Role implements RoleInterface{
     }
 
     /**
-     * @return PersistentCollection | Permission[]
+     * @param bool $recursive when true child permissions of a role are returned as well
+     * @return PersistentCollection|Permission[]
      */
-    public function getPermissions()
+    public function getPermissions($recursive=false)
     {
-        return $this->permissions;
+        if (!$recursive) {
+            return $this->permissions;
+        }
+        $permissions =  $this->permissions->getValues();
+        $it = new IteratorIterator($this);
+        foreach ($it as $leaf) {
+            $permissions = array_merge($permissions, $leaf->getPermissions(true));
+        }
+        return $permissions;
     }
 
     /**
@@ -227,18 +235,9 @@ class Role implements RoleInterface{
      */
     public function hasPermission($name)
     {
-        foreach ($this->getPermissions() as $permission) {
+        foreach ($this->getPermissions(true) as $permission) {
             if ($permission->getName() == $name) {
                 return true;
-            }
-        }
-
-        $it = new RecursiveIteratorIterator($this, RecursiveIteratorIterator::CHILD_FIRST);
-        foreach ($it as $leaf) {
-            foreach ($leaf->getPermissions() as $permission) {
-                if ($permission->getName() == $name) {
-                    return true;
-                }
             }
         }
 
