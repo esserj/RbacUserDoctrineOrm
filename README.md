@@ -45,7 +45,26 @@ Installation of RbacUserDoctrineOrm uses composer. For composer documentation, p
         'RbacUserDoctrineOrm',
      ```
   6. run the schema-full.sql file found in `my/project/directory/vendor/esserj/rbac-user-doctrine-orm/data` or alternatively run the schema.sql if you already installed ZfcUser or ZfcRbac schemas
-  7. see the ZfcUser & ZfcRbac pages for controller/view plugins to get started
+  7. Setup doctrine database parameters by adding the following to your my/project/config/autoload/local.php:
+  
+     ```php
+        'doctrine' => array(
+            'connection' => array(
+                // default connection name
+                'orm_default' => array(
+                    'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                    'params' => array(
+                        'host'     => 'localhost',
+                        'port'     => '3306',
+                        'user'     => '', //put your user here
+                        'password' => '', //put your pass here
+                        'dbname'   => '', //put your database here
+                    )
+                )
+            )
+        )
+    ```
+  8. see the ZfcUser & ZfcRbac pages for controller/view plugins to get started
      
 ## Providers
 
