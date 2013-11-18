@@ -33,7 +33,7 @@ Installation of RbacUserDoctrineOrm uses composer. For composer documentation, p
   3. install composer via `curl -s http://getcomposer.org/installer | php` (on windows, download
      http://getcomposer.org/installer and execute it with PHP)
   4. run `php composer.phar install`
-  5. open `my/project/directory/configs/application.config.php` and add the following key to your `modules`:
+  5. open `my/project/directory/configs/application.config.php` and add the followinG to your `modules` key:
 
      ```php
         'DoctrineModule',
@@ -45,7 +45,7 @@ Installation of RbacUserDoctrineOrm uses composer. For composer documentation, p
         'RbacUserDoctrineOrm',
      ```
   6. run the schema-full.sql file found in `my/project/directory/vendor/esserj/rbac-user-doctrine-orm/data` or alternatively run the schema.sql if you already installed ZfcUser or ZfcRbac schemas
-  7. Setup doctrine database parameters by adding the following to your my/project/config/autoload/local.php:
+  7. Setup doctrine database parameters by adding the following to your `my/project/config/autoload/local.php`:
   
      ```php
         'doctrine' => array(
