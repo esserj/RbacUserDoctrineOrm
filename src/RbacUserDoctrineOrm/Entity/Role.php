@@ -15,37 +15,59 @@
 
 namespace RbacUserDoctrineOrm\Entity;
 
-
 use Doctrine\ORM\PersistentCollection;
+use Doctrine\ORM\Mapping as ORM;
 use RecursiveIterator;
 use IteratorIterator;
 use Zend\Permissions\Rbac\RoleInterface;
 
-
+/**
+ * Role
+ *
+ * @ORM\Table(name="rbac_role")
+ * @ORM\Entity
+ */
 class Role implements RoleInterface{
 
     /**
      * @var int
+     * 
+     * @ORM\Column(name="role_id", type="integer", length=1, nullable=false, options={"unsigned":true})
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
 
     /**
      * @var Role
+     * 
+     * @ORM\ManyToOne(targetEntity="Role", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_role_id", referencedColumnName="role_id")
      */
     protected $parent;
 
     /**
      * @var PersistentCollection|Role[]
+     * 
+     * @ORM\OneToMany(targetEntity="Role", mappedBy="parent")
      */
     protected $children;
 
     /**
      * @var string
+     * 
+     * @ORM\Column(name="role_name", type="string", length=32, nullable=true)
      */
     protected $name;
-
+    
     /**
      * @var PersistentCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Permission")
+     * @ORM\JoinTable(name="rbac_role_permission",
+     *      joinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="role_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="perm_id", referencedColumnName="perm_id")}
+     *      )
      */
     protected $permissions;
 

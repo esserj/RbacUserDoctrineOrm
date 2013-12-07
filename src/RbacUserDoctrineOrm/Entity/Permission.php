@@ -15,18 +15,44 @@
 
 namespace RbacUserDoctrineOrm\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use RecursiveIterator;
+use IteratorIterator;
+use ZfcRbac\Permission\PermissionInterface;
 
-class Permission {
+/**
+ * Role
+ *
+ * @ORM\Table(name="rbac_permission")
+ * @ORM\Entity
+ */
+class Permission implements PermissionInterface{
 
     /**
      * @var int
+     * 
+     * @ORM\Column(name="perm_id", type="integer", length=11, nullable=false, options={"unsigned":true})
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
 
     /**
      * @var string
+     * 
+     * @ORM\Column(name="perm_name", type="string", length=32, nullable=true)
      */
     protected $name;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="perm_desc", type="text", nullable=true)
+     */
+    protected $description;
+    
+    
+    protected $roles;
 
     /**
      * @param int $id
@@ -67,6 +93,20 @@ class Permission {
     public function __toString()
     {
         return $this->name;
-    }
+    }
+	/* (non-PHPdoc)
+	 * @see \ZfcRbac\Permission\PermissionInterface::getRoles()
+	 */
+	public function getRoles($recursive=false) {
+		if (!$recursive) {
+			return $this->roles;
+		}
+		$roles =  $this->roles->getValues();
+		$it = new IteratorIterator($this);
+		foreach ($it as $leaf) {
+			$roles = array_merge($roles, $leaf->getRoles(true));
+		}
+		return $roles;
+	}
 
 }
