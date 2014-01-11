@@ -65,27 +65,7 @@ class Module
      */
     public function getServiceConfig()
     {
-        return array(
-            'factories' => array(
-                'RbacUserDoctrineOrmRoleMapper' => function ($sm) {
-                    return new Mapper\Role(
-                        $sm->get('zfcuser_doctrine_em'),
-                        $sm->get('RbacUserDoctrineOrmRoleMapperOptions')
-                    );
-                },
-                'RbacUserDoctrineOrmRoleMapperOptions' => function ($sm) {
-                    $config = $sm->get('Configuration');
-                    return new Options\RoleMapperOptions(
-                        (isset($config['rbac-user-doctrine-orm']['mapper']['role'])
-                            ? $config['rbac-user-doctrine-orm']['mapper']['role']
-                            : array())
-                    );
-                },
-                'Zend\Authentication\AuthenticationService' => function ($serviceManager) {
-                	return $serviceManager->get('doctrine.authenticationservice.orm_default');
-                }
-            ),
-        );
+        return array();
     }
 
     /**

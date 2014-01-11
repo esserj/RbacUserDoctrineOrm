@@ -1,24 +1,12 @@
 <?php
 return array(
-    'rbac-user-doctrine-orm' => array(
-        'mapper' => array(
-            'role' => array(
-                'entityClass' => 'RbacUserDoctrineOrm\Entity\Role'
-            )
-        )
-    ),
     'zfc_rbac' => array(  
     	'identity_provider' => 'ZfcRbac\Identity\AuthenticationIdentityProvider',
-    	'role_providers' => [
+    	'role_provider' => [
     		'ZfcRbac\Role\ObjectRepositoryRoleProvider' => [
-                'object_manager' => 'doctrine.entitymanager.orm_default',
-                'class_name'     => 'RbacUserDoctrineOrm\Entity\Role'
-            ]
-    	],
-    	'permission_providers' => [
-    		'ZfcRbac\Permission\ObjectRepositoryPermissionProvider' => [
-                'object_manager' => 'doctrine.entitymanager.orm_default',
-                'class_name'     => 'RbacUserDoctrineOrm\Entity\Permission'
+                'object_manager' 		=> 'doctrine.entitymanager.orm_default',
+                'class_name'     		=> 'RbacUserDoctrineOrm\Entity\Role',
+    			'role_name_property' 	=> 'name'
             ]
     	]
     ),

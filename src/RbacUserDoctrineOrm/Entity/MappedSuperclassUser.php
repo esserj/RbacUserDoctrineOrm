@@ -31,9 +31,9 @@ abstract class MappedSuperclassUser extends \ZfcUserDoctrineORM\Entity\MappedSup
      * @var Role[]
      * 
      * @ORM\ManyToMany(targetEntity="Role")
-     * @ORM\JoinTable(name="user_rbac_role",
-     *      joinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="id", referencedColumnName="role_id")}
+     * @ORM\JoinTable(name="users_roles",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")}
      *      )
      */
     protected $roles;
