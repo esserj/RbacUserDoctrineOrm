@@ -4,13 +4,13 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <mapped-superclass name="RbacUserDoctrineOrm\Entity\Permission" table="rbac_permission">
+    <entity name="RbacUserDoctrineOrm\Entity\Permission" table="permission">
 
-        <id name="id" type="integer" column="perm_id">
+        <id name="id" type="integer" column="id">
             <generator strategy="AUTO" />
         </id>
 
-        <field name="name" type="string" length="32" column="perm_name" />
-    </mapped-superclass>
+        <field name="name" type="string" length="32" column="name" />
+    </entity>
 
 </doctrine-mapping>
