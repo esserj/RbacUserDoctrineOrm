@@ -38,6 +38,9 @@ return [
 				'credential_property' => 'password',
 			],
 		],
+		'fixture' => [
+    		'RbacUserDoctrineOrmFixture' => __DIR__ . '/../src/RbacUserDoctrineOrm/Fixture',
+    	]
     ],
     'view_manager' => [
         'template_map' => [
