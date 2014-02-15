@@ -1,12 +1,11 @@
 <?php
 namespace RbacUserDoctrineOrm\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
 use RecursiveIterator;
 use Rbac\Role\HierarchicalRoleInterface;
 use Rbac\Role\RoleInterface;
 use Rbac\Role\HierarchicalRole;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Role

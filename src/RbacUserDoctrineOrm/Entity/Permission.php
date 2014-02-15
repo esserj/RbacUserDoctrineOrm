@@ -1,7 +1,6 @@
 <?php
 namespace RbacUserDoctrineOrm\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Rbac\Permission\PermissionInterface;
 
 /**
@@ -13,16 +12,12 @@ class Permission implements PermissionInterface
     /**
      * @var int|null
      *
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(type="string", length=128, unique=true)
      */
     protected $name;
 
