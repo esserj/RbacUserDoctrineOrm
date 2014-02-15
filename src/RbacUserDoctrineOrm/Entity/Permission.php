@@ -1,44 +1,42 @@
 <?php
-/**
- * Role.php file
- *
- * PHP Version 5
- *
- * @category   ${category}
- * @package    Inventis
- * @subpackage Bricks
- * @author     Inventis Web Architects <info@inventis.be>
- * @license    Copyright © Inventis BVBA  - All rights reserved
- * @link       https://github.com/Inventis/Bricks
- */
-
-
 namespace RbacUserDoctrineOrm\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Rbac\Permission\PermissionInterface;
 
-class Permission {
-
+/**
+ * Permission
+ * 
+ */
+class Permission implements PermissionInterface
+{
     /**
-     * @var int
+     * @var int|null
+     *
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
-     * @var string
+     * @var string|null
+     *
+     * @ORM\Column(type="string", length=128, unique=true)
      */
     protected $name;
 
     /**
-     * @param int $id
-     * @return self
+     * Constructor
      */
-    public function setId($id)
+    public function __construct($name)
     {
-        $this->id = $id;
-        return $this;
+        $this->name  = (string) $name;
     }
 
     /**
+     * Get the permission identifier
+     *
      * @return int
      */
     public function getId()
@@ -47,26 +45,10 @@ class Permission {
     }
 
     /**
-     * @param string $name
-     * @return self
+     * {@inheritDoc}
      */
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
     public function __toString()
     {
         return $this->name;
     }
-
 }
