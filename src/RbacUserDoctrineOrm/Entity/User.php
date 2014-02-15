@@ -1,8 +1,6 @@
 <?php
 namespace RbacUserDoctrineOrm\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\PersistentCollection;
 use ZfcRbac\Identity\IdentityInterface;
 use ZfcUserDoctrineORM\Entity\User as ZfcUserDoctrineORMUser;
 
