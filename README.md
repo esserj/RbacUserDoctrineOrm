@@ -12,6 +12,8 @@ RbacUserDoctrineOrm offers a module that combines ZfcRbac & ZfcUser together wit
      - [ZfcBase](https://github.com/ZF-Commons/ZfcBase)
    - [DoctrineORMModule](https://github.com/doctrine/DoctrineORMModule)
      - [DoctrineModule](https://github.com/doctrine/DoctrineModule)
+     - [DoctrineDataFixtures](https://github.com/doctrine/data-fixtures)
+   - [Hounddog/DoctrineDataFixtureModule](https://github.com/Hounddog/DoctrineDataFixtureModule)
 
 ## Installation
 
@@ -45,20 +47,8 @@ Installation of RbacUserDoctrineOrm uses composer. For composer documentation, p
         'ZfcUserDoctrineORM',
         'RbacUserDoctrineOrm',
      ```
-  6. Install or Update database
   
-  To install database run this commande :
-  ```php
-  	.\vendor\bin\doctrine orm:clear-cache:metadata
-	.\vendor\bin\doctrine orm:schema-tool:create
-  ```
-  
-  To update database run this commande :
-    ```php
-  	.\vendor\bin\doctrine-module orm:schema-tool:update --force
-  ```
-  
-  7. setup doctrine database parameters by adding the following to your `my/project/config/autoload/local.php`:
+  6. setup doctrine database parameters by adding the following to your `my/project/config/autoload/local.php`:
   
      ```php
         'doctrine' => array(
@@ -77,14 +67,27 @@ Installation of RbacUserDoctrineOrm uses composer. For composer documentation, p
             )
         )
     ```
-  8. see the ZfcUser & ZfcRbac pages for controller/view plugins to get started
-     
-## Providers
-
-Providers are listeners that hook into various events to provide roles and permissions. ZfcRbac ships with
-several providers that you can use out of the box, but none support ORM, this is where we come in:
-
-  - Generic Providers:
-    - Permissions & Roles (RbacUserDoctrineOrm\Provider\AdjacencyList\Role): uses Doctrine ORM to inject Role entities that have permission entities compatible with the ZfcRbac RoleInterface
-
-
+    
+  7. Install or Update database
+  
+  To install database run this commande :
+  ```php
+  	.\vendor\bin\doctrine-module orm:clear-cache:metadata
+	.\vendor\bin\doctrine-module orm:schema-tool:create
+  ```
+  
+  To update database run this commande :
+    ```php
+  	.\vendor\bin\doctrine-module orm:schema-tool:update --force
+  ```
+  
+  8. Load data in your database with Doctrine fixtures
+  
+  Run this commande line to load data
+  ```php
+  	.\vendor\bin\doctrine-module data-fixture:import
+  ```
+  This commande add the guest role. You can create your own fixture to load data in your bdd.
+  
+  9. see the ZfcUser & ZfcRbac pages for controller/view plugins to get started
+ 
