@@ -2,7 +2,7 @@
 namespace RbacUserDoctrineOrm\Entity;
 
 use ZfcRbac\Identity\IdentityInterface;
-use ZfcUserDoctrineORM\Entity\User as ZfcUserDoctrineORMUser;
+use ZfcUser\Entity\User as ZfcUserDoctrineORMUser;
 
 /**
  * User

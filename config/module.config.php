@@ -1,5 +1,6 @@
 <?php
 return [
+	
     'zfc_rbac' => [  
     	'identity_provider' => 'ZfcRbac\Identity\AuthenticationIdentityProvider',
     	'role_provider' => [
@@ -11,7 +12,8 @@ return [
     	]
     ],
     'zfcuser' => [
-        'userEntityClass' => 'RbacUserDoctrineOrm\Entity\User'
+        'user_entity_class' => 'RbacUserDoctrineOrm\Entity\User',
+        'enable_default_entities'	=>	false
     ],
     'doctrine' => [
         'driver' => [
@@ -22,7 +24,6 @@ return [
             'orm_default' => [
                 'drivers' => [
                     'RbacUserDoctrineOrm\Entity'  => 'RbacUserDoctrineEntity',
-                	'ZfcUserDoctrineORM\Entity' =>  'RbacUserDoctrineEntity'
                 ]
             ],
         	'zfcuserdoctrineorm_entity' => [
@@ -38,13 +39,13 @@ return [
 				'credential_property' => 'password',
 			],
 		],
-		'fixture' => [
-    		'RbacUserDoctrineOrmFixture' => __DIR__ . '/../src/RbacUserDoctrineOrm/Fixture',
-    	]
     ],
     'view_manager' => [
         'template_map' => [
             'error/403' => __DIR__ . '/../view/error/403.phtml',
         ]
     ],
+    'data-fixture' => [
+    	'RbacUserDoctrineOrmFixture' => __DIR__ . '/../src/RbacUserDoctrineOrm/Fixture',
+    ]
 ];

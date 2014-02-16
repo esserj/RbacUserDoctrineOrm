@@ -1,7 +1,6 @@
 <?php
 namespace RbacUserDoctrineOrm\Entity;
 
-use RecursiveIterator;
 use Rbac\Role\HierarchicalRoleInterface;
 use Rbac\Role\RoleInterface;
 use Rbac\Role\HierarchicalRole;
