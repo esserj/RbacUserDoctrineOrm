@@ -1,41 +1,50 @@
 <?php
-return array(
-    'rbac-user-doctrine-orm' => array(
-        'mapper' => array(
-            'role' => array(
-                'entityClass' => 'RbacUserDoctrineOrm\Entity\Role'
-            )
-        )
-    ),
-    'zfcrbac' => array(
-        'providers' => array(
-            'RbacUserDoctrineOrm\Provider\AdjacencyList\Role\DoctrineORM' => array(),
-        ),
-        /**
-         * have identities provided by zfc-user module
-         */
-        'identity_provider' => 'zfcuser_auth_service'
-    ),
-    'zfcuser' => array(
+return [
+    'zfc_rbac' => [  
+    	'identity_provider' => 'ZfcRbac\Identity\AuthenticationIdentityProvider',
+    	'role_provider' => [
+    		'ZfcRbac\Role\ObjectRepositoryRoleProvider' => [
+                'object_manager' 		=> 'doctrine.entitymanager.orm_default',
+                'class_name'     		=> 'RbacUserDoctrineOrm\Entity\Role',
+    			'role_name_property' 	=> 'name'
+            ]
+    	]
+    ],
+    'zfcuser' => [
         'userEntityClass' => 'RbacUserDoctrineOrm\Entity\User'
-    ),
-    'doctrine' => array(
-        'driver' => array(
-            'RbacUserDoctrineEntity' => array(
-                'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
-                'paths' => __DIR__ . '/xml/doctrine'
-            ),
-
-            'orm_default' => array(
-                'drivers' => array(
-                    'RbacUserDoctrineOrm\Entity'  => 'RbacUserDoctrineEntity'
-                )
-            )
-        )
-    ),
-    'view_manager' => array(
-        'template_map' => array(
+    ],
+    'doctrine' => [
+        'driver' => [
+            'RbacUserDoctrineEntity' => [
+            	'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
+            	'paths' => __DIR__ . '/xml/doctrine'
+            ],
+            'orm_default' => [
+                'drivers' => [
+                    'RbacUserDoctrineOrm\Entity'  => 'RbacUserDoctrineEntity',
+                	'ZfcUserDoctrineORM\Entity' =>  'RbacUserDoctrineEntity'
+                ]
+            ],
+        	'zfcuserdoctrineorm_entity' => [
+        		'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+        		'cache' => 'array',
+        		'paths' => [__DIR__ . '/../src/RbacUserDoctrineOrm/Entity']
+        	],
+        ],'authentication' => [
+			'orm_default' => [
+				'object_manager' => 'Doctrine\ORM\EntityManager',
+				'identity_class' => 'RbacUserDoctrineOrm\Entity\User',
+				'identity_property' => 'email',
+				'credential_property' => 'password',
+			],
+		],
+		'fixture' => [
+    		'RbacUserDoctrineOrmFixture' => __DIR__ . '/../src/RbacUserDoctrineOrm/Fixture',
+    	]
+    ],
+    'view_manager' => [
+        'template_map' => [
             'error/403' => __DIR__ . '/../view/error/403.phtml',
-        )
-    ),
-);
+        ]
+    ],
+];

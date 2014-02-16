@@ -38,13 +38,26 @@ Installation of RbacUserDoctrineOrm uses composer. For composer documentation, p
      ```php
         'DoctrineModule',
         'DoctrineORMModule',
+        'DoctrineDataFixtureModule',
         'ZfcBase',
         'ZfcRbac',
         'ZfcUser',
         'ZfcUserDoctrineORM',
         'RbacUserDoctrineOrm',
      ```
-  6. run the schema-full.sql file found in `my/project/directory/vendor/esserj/rbac-user-doctrine-orm/data` or alternatively run the schema.sql if you already installed ZfcUser or ZfcRbac schemas
+  6. Install or Update database
+  
+  To install database run this commande :
+  ```php
+  	.\vendor\bin\doctrine orm:clear-cache:metadata
+	.\vendor\bin\doctrine orm:schema-tool:create
+  ```
+  
+  To update database run this commande :
+    ```php
+  	.\vendor\bin\doctrine-module orm:schema-tool:update --force
+  ```
+  
   7. setup doctrine database parameters by adding the following to your `my/project/config/autoload/local.php`:
   
      ```php
