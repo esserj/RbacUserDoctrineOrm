@@ -3,6 +3,7 @@ namespace RbacUserDoctrineOrm\Entity;
 
 use ZfcRbac\Identity\IdentityInterface;
 use ZfcUser\Entity\User as ZfcUserDoctrineORMUser;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -11,12 +12,20 @@ use ZfcUser\Entity\User as ZfcUserDoctrineORMUser;
 class User extends ZfcUserDoctrineORMUser implements IdentityInterface
 {
 	/**
-	 * @var Role[]
+	 * @var Role[]|\Doctrine\Common\Collections\Collection
 	 */
 	protected $roles;
 	
 	/**
-	 * @return PersistentCollection|Role[]
+	 * Init the Doctrine collection
+	 */
+	public function __construct()
+	{
+		$this->roles    = new ArrayCollection();
+	}
+	
+	/**
+	 * @return Role[]|\Doctrine\Common\Collections\Collection
 	 */
 	public function getRoles()
 	{
@@ -24,12 +33,39 @@ class User extends ZfcUserDoctrineORMUser implements IdentityInterface
 	}
 	
 	/**
-	 * @param PersistentCollection $roles
+	 * @param \Doctrine\Common\Collections\Collection $roles
 	 * @return self
 	 */
-	public function setRoles(PersistentCollection $roles)
+	public function setRoles($roles)
 	{
-		$this->roles = $roles;
+		$this->roles = new ArrayCollection();
+		if(count($roles)){
+			foreach($roles as $role){
+				if(!$this->hasRole($role)){
+					$this->addRole($role);
+				}
+			}
+		}
+		
 		return $this;
+	}
+	
+	/**
+	 * @param Role $role
+	 * @return self
+	 */
+	public function addRole($role)
+	{
+		$this->roles[(string) $role] = $role;
+		return $this;
+	}
+	
+	/**
+	 * @param Role $role
+	 * @return bool
+	 */
+	public function hasRole($role)
+	{
+		return isset($this->roles[(string) $role]);
 	}
 }

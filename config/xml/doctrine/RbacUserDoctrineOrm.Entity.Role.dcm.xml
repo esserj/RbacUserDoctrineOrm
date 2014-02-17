@@ -10,7 +10,7 @@
             <generator strategy="AUTO" />
         </id>
 
-        <field name="name" type="string" length="48" column="name" />
+        <field name="name" type="string" length="48" column="name" unique="true" />
         
         <many-to-many field="children" target-entity="Role">
         	<join-table name="roles_roles">
