@@ -25,12 +25,7 @@ return [
                 'drivers' => [
                     'RbacUserDoctrineOrm\Entity'  => 'RbacUserDoctrineEntity',
                 ]
-            ],
-        	'zfcuserdoctrineorm_entity' => [
-        		'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-        		'cache' => 'array',
-        		'paths' => [__DIR__ . '/../src/RbacUserDoctrineOrm/Entity']
-        	],
+            ]
         ],'authentication' => [
 			'orm_default' => [
 				'object_manager' => 'Doctrine\ORM\EntityManager',
