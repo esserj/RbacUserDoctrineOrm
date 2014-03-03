@@ -23,7 +23,7 @@
             </join-table>
         </many-to-many>
         
-        <many-to-many field="permissions" target-entity="Permission">
+        <many-to-many field="permissions" target-entity="Permission" inversed-by="roles">
             <join-table name="roles_permissions">
                 <join-columns>
                     <join-column name="role_id" referenced-column-name="id"/>
@@ -33,6 +33,7 @@
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
-    </entity>
-
+        
+        <many-to-many field="users" mapped-by="roles" target-entity="User"/>
+	</entity>
 </doctrine-mapping>

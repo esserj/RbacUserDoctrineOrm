@@ -6,7 +6,7 @@
 
     <entity name="RbacUserDoctrineOrm\Entity\User" table="user">
 
-        <many-to-many field="roles" target-entity="Role">
+        <many-to-many field="roles" target-entity="Role" inversed-by="users">
             <join-table name="user_rbac_role">
                 <join-columns>
                     <join-column name="user_id" referenced-column-name="user_id"/>

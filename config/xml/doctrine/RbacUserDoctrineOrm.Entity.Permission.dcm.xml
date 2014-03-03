@@ -11,6 +11,8 @@
         </id>
 
         <field name="name" type="string" length="32" column="name" />
+        
+        <many-to-many field="roles" mapped-by="permissions" target-entity="Role"/>
     </entity>
 
 </doctrine-mapping>

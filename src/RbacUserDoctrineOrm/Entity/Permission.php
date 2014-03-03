@@ -2,6 +2,7 @@
 namespace RbacUserDoctrineOrm\Entity;
 
 use Rbac\Permission\PermissionInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Permission
@@ -20,6 +21,11 @@ class Permission implements PermissionInterface
      *
      */
     protected $name;
+    
+    /**
+     * @var Role[]|\Doctrine\Common\Collections\Collection
+     */
+    protected $roles;
 
     /**
      * Constructor
@@ -27,6 +33,7 @@ class Permission implements PermissionInterface
     public function __construct($name)
     {
         $this->name  = (string) $name;
+        $this->roles    = new ArrayCollection();
     }
 
     /**
@@ -37,6 +44,14 @@ class Permission implements PermissionInterface
     public function getId()
     {
         return $this->id;
+    }
+    
+    /**
+     * @return Role[]|\Doctrine\Common\Collections\Collection
+     */
+    public function getRoles()
+    {
+    	return $this->roles;
     }
 
     /**

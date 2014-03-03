@@ -35,6 +35,12 @@ class Role extends HierarchicalRole
      *
      */
     protected $permissions;
+    
+    /**
+     * @var User[]|\Doctrine\Common\Collections\Collection
+     *
+     */
+    protected $users;
 
     /**
      * Init the Doctrine collection
@@ -43,6 +49,7 @@ class Role extends HierarchicalRole
     {
         $this->children    = new ArrayCollection();
         $this->permissions = new ArrayCollection();
+        $this->users = new ArrayCollection();
         parent::__construct($name);
     }
 
@@ -72,5 +79,21 @@ class Role extends HierarchicalRole
      */
     public function __toString(){
     	return $this->name;
+    }
+    
+    /**
+     * Get permissions
+     * @return Permission
+     */
+    public function getPermissions(){
+    	return $this->permissions;
+    }
+    
+    /**
+     * Get users
+     * @return User
+     */
+    public function getUsers(){
+    	return $this->users;
     }
 }
