@@ -1,6 +1,15 @@
 <?php
 return [
-	
+	'rbac-user-doctrine-orm' => array(
+		'mapper' => array(
+			'role' => array(
+				'entityClass' => 'RbacUserDoctrineOrm\Entity\Role'
+			),
+			'permission'=> array(
+				'entityClass' => 'RbacUserDoctrineOrm\Entity\Permission'
+			),
+		)
+	),
     'zfc_rbac' => [  
     	'identity_provider' => 'ZfcRbac\Identity\AuthenticationIdentityProvider',
     	'role_provider' => [
