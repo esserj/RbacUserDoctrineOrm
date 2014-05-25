@@ -27,5 +27,6 @@
 		"psr-0" : {
 			"RbacUserDoctrineOrm" : "src/"
 		}
-	}
+	},
+	"minimum-stability" : "dev"
 }
