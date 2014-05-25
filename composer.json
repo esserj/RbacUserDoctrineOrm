@@ -19,11 +19,11 @@
 	"require" : {
 		"hounddog/doctrine-data-fixture-module" : "0.*",
 		"zf-commons/zfc-rbac" : "dev-master",
-		"zfr/rbac": "dev:master",
+		"zfr/rbac": "dev-master",
 		"php" : ">=5.3.3",
-		"zf-commons/zfc-user-doctrine-orm" : "dev-master",
 		"zendframework/zendframework" : ">2.2.0rc1",
-		"zf-commons/zfc-user": "1.*"
+		"zf-commons/zfc-user": ">=0.1.1",
+		"zf-commons/zfc-user-doctrine-orm" : "dev-master"
 	},
 	"autoload" : {
 		"psr-0" : {
