@@ -19,6 +19,7 @@
 	"require" : {
 		"hounddog/doctrine-data-fixture-module" : "0.*",
 		"zf-commons/zfc-rbac" : "dev-master",
+		"zfr/rbac": "dev:master"
 		"php" : ">=5.3.3",
 		"zf-commons/zfc-user-doctrine-orm" : "dev-master",
 		"zendframework/zendframework" : ">2.2.0rc1"
