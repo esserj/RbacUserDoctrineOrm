@@ -17,11 +17,9 @@
 	],
 	"homepage" : "http://www.github.com/esserj/RbacUserDoctrineOrm/",
 	"require" : {
-		"doctrine/doctrine-orm-module" : "0.7.*",
 		"hounddog/doctrine-data-fixture-module" : "0.*",
-		"zf-commons/zfc-rbac" : "~2.0",
+		"zf-commons/zfc-rbac" : "2.*",
 		"php" : ">=5.3.3",
-		"zf-commons/zfc-user" : "dev-master",
 		"zf-commons/zfc-user-doctrine-orm" : "dev-master",
 		"zendframework/zendframework" : ">2.2.0rc1"
 	},
