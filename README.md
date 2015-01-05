@@ -26,7 +26,7 @@ Installation of RbacUserDoctrineOrm uses composer. For composer documentation, p
      ```json
      {
          "require": {
-             "esserj/zfc-rbac-user-doctrine-orm": "dev-master"
+             "esserj/rbac-user-doctrine-orm": "dev-master"
          }
      }
      ```
